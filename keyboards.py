@@ -14,7 +14,6 @@ buttons: list[KeyboardButton] = [
 kb_builder.row(*buttons, width=2)
 game_start_kb: ReplyKeyboardMarkup = kb_builder.as_markup(resize_keyboard=True, one_time_keyboard=True)
 
-
 # Инициализируем билдер
 kb_builder = ReplyKeyboardBuilder()
 
@@ -27,7 +26,6 @@ buttons: list[KeyboardButton] = [
 kb_builder.row(*buttons, width=2)
 game1_step_kb: ReplyKeyboardMarkup = kb_builder.as_markup(resize_keyboard=True, one_time_keyboard=True)
 
-
 # Инициализируем билдер
 kb_builder = ReplyKeyboardBuilder()
 
@@ -38,7 +36,6 @@ buttons: list[KeyboardButton] = [
 ]
 kb_builder.row(*buttons, width=2)
 game1_kb: ReplyKeyboardMarkup = kb_builder.as_markup(resize_keyboard=True, one_time_keyboard=True)
-
 
 # Инициализируем билдер
 kb_builder = ReplyKeyboardBuilder()
@@ -53,16 +50,15 @@ buttons: list[KeyboardButton] = [
 kb_builder.row(*buttons, width=2)
 game1_1_kb: ReplyKeyboardMarkup = kb_builder.as_markup(resize_keyboard=True, one_time_keyboard=True)
 
-
 # Инициализируем билдер
 kb_builder = ReplyKeyboardBuilder()
 
 # Создаем список с кнопками
 buttons: list[KeyboardButton] = [
-    KeyboardButton(text=f'0{num}') for num in range(1, 10)] + [
-    KeyboardButton(text=f'{num}') for num in range(10, 101)] + [
-    KeyboardButton(text='Выйти из игры')
-]
+                                    KeyboardButton(text=f'0{num}') for num in range(1, 10)] + [
+                                    KeyboardButton(text=f'{num}') for num in range(10, 101)] + [
+                                    KeyboardButton(text='Выйти из игры')
+                                ]
 kb_builder.row(*buttons, width=10)
 game1_2_kb: ReplyKeyboardMarkup = kb_builder.as_markup(resize_keyboard=True, one_time_keyboard=True)
 
@@ -80,6 +76,29 @@ game2_kb = ReplyKeyboardMarkup(
               [button_4]],
     resize_keyboard=True
 )
+
+# Инициализируем билдер
+kb_builder = ReplyKeyboardBuilder()
+
+# Создаем список с кнопками
+buttons: list[KeyboardButton] = [
+                                    KeyboardButton(text=f'{num}') for num in range(1, 4)] + [
+                                    KeyboardButton(text='Выйти из игры')
+                                ]
+kb_builder.row(*buttons, width=2)
+game3_kb: ReplyKeyboardMarkup = kb_builder.as_markup(resize_keyboard=True, one_time_keyboard=True)
+
+# Инициализируем билдер
+kb_builder = ReplyKeyboardBuilder()
+
+# Создаем список с кнопками
+buttons: list[KeyboardButton] = [
+    KeyboardButton(text=f'Я начну'),
+    KeyboardButton(text=f'Ты начинай'),
+    KeyboardButton(text=f'Выйти из игры')
+]
+kb_builder.row(*buttons, width=2)
+game3_step_kb: ReplyKeyboardMarkup = kb_builder.as_markup(resize_keyboard=True, one_time_keyboard=True)
 
 button_yes = KeyboardButton(text=LEXICON_RU['yes_button1'])
 button_no = KeyboardButton(text=LEXICON_RU['no_button'])
@@ -108,6 +127,22 @@ yes_no_kb_builder.row(button_yes, button_no, width=2)
 
 # Создаем клавиатуру с кнопками "Давай!" и "Не хочу!"
 yes_no_kb2: ReplyKeyboardMarkup = yes_no_kb_builder.as_markup(
+    one_time_keyboard=True,
+    resize_keyboard=True
+)
+
+# Создаем кнопки с ответами согласия и отказа
+button_yes = KeyboardButton(text=LEXICON_RU['yes_button3'])
+button_no = KeyboardButton(text=LEXICON_RU['no_button'])
+
+# Инициализируем билдер для клавиатуры с кнопками "Давай" и "Не хочу!"
+yes_no_kb_builder = ReplyKeyboardBuilder()
+
+# Добавляем кнопки в билдер с аргументом width=2
+yes_no_kb_builder.row(button_yes, button_no, width=2)
+
+# Создаем клавиатуру с кнопками "Давай!" и "Не хочу!"
+yes_no_kb3: ReplyKeyboardMarkup = yes_no_kb_builder.as_markup(
     one_time_keyboard=True,
     resize_keyboard=True
 )
